@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Gorkem Yurtseven. All rights reserved.
 //
 
-#import "GSYViewController.h"
+#import "GSYDetailedViewController.h"
 
-@interface GSYViewController ()
+@interface GSYDetailedViewController ()
 
 @end
 
-@implementation GSYViewController
+@implementation GSYDetailedViewController
 
 - (void)viewDidLoad
 {

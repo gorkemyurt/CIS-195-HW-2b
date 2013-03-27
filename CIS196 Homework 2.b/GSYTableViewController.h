@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "GSYDataManager.h"
 
-@interface GSYTableViewController : UITableViewController <CLLocationManagerDelegate>
+@interface GSYTableViewController : UITableViewController <CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate> {
+    GSYDataManager *manager;
+}
 @property (weak, nonatomic) IBOutlet UITextField *noteField;
-- (IBAction)notebutton:(UIButton *)sender;
+@property (strong,nonatomic) NSMutableArray *filteredNotesArray;
+@property IBOutlet UISearchBar *notesSearchBar;
+
+
+//- (IBAction)notebutton:(UIButton *)sender;
 
 @end

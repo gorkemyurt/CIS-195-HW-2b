@@ -12,9 +12,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="9B2-HE-1wl">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="PVj-pm-WPv" id="1RH-Zh-Yg0"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="n1z-CE-P9z">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -34,15 +42,28 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="notesSearchBar" destination="9B2-HE-1wl" id="xZp-Tb-Zlz"/>
+                        <outlet property="searchDisplayController" destination="QkO-Bb-EVB" id="rln-nu-ARb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQl-wr-Z5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="QkO-Bb-EVB">
+                    <connections>
+                        <outlet property="delegate" destination="PVj-pm-WPv" id="VvO-1v-Mhc"/>
+                        <outlet property="searchBar" destination="9B2-HE-1wl" id="Ul6-E0-zUP"/>
+                        <outlet property="searchContentsController" destination="PVj-pm-WPv" id="V3g-N5-yAq"/>
+                        <outlet property="searchResultsDataSource" destination="PVj-pm-WPv" id="RFK-r5-jtl"/>
+                        <outlet property="searchResultsDelegate" destination="PVj-pm-WPv" id="s8g-Z8-Bsv"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="130" y="-413"/>
         </scene>
-        <!--View Controller-->
+        <!--Detailed View Controller-->
         <scene sceneID="efz-x7-fP8">
             <objects>
-                <viewController id="r7C-1E-orh" customClass="GSYViewController" sceneMemberID="viewController">
+                <viewController id="r7C-1E-orh" customClass="GSYDetailedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VSO-We-V44">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -196,10 +217,17 @@
         </scene>
     </scenes>
     <classes>
+        <class className="GSYDetailedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GSYDetailedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionlabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapview" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="titlelabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="GSYOtherViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GSYOtherViewController.h"/>
             <relationships>
-                <relationship kind="action" name="doneButton:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="description" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
             </relationships>
@@ -207,24 +235,12 @@
         <class className="GSYTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GSYTableViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backNotes:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="notebutton:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="noteField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="GSYViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GSYViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="descriptionlabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapview" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="titlelabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="notesSearchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

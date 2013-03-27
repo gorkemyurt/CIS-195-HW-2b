@@ -1,5 +1,5 @@
 //
-//  GSYViewController.h
+//  GSYDetailedViewController.h
 //  CIS196 Homework 2.b
 //
 //  Created by Gorkem Yurtseven on 3/14/13.
@@ -11,7 +11,7 @@
 #import <MapKit/MapKit.h>
 
 
-@interface GSYViewController : UIViewController 
+@interface GSYDetailedViewController : UIViewController <CLLocationManagerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
